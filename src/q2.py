@@ -13,6 +13,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 class SpamReader:
+    """A class to plot word frequencies in spam and ham messages."""
     def __init__(self, df: pd.DataFrame) -> None:
         """
         Store the provided dataframe.

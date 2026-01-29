@@ -12,6 +12,7 @@ sys.path.append(".")
 import pandas as pd
 
 class SpamReader:
+    """A class to sort messages by the frequency of a given word."""
     def __init__(self, df: pd.DataFrame) -> None:
         """
         Store the provided dataframe.
@@ -24,7 +25,8 @@ class SpamReader:
         """
         self.df = df
 
-    def sort_by_word_frequency(self, word: str, include_spam: bool = True, include_ham: bool = True) -> pd.DataFrame:
+    def sort_by_word_frequency(
+            self, word: str, include_spam: bool = True, include_ham: bool = True) -> pd.DataFrame:
         """
         Return a copy of the dataframe, sorted by the frequency of times that the given
         word appears in the message. The messages in which the word appears most often

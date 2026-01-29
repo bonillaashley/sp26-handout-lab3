@@ -10,9 +10,9 @@ Implement this class to analyze the data according to the documentation.
 import sys
 sys.path.append(".")
 import pandas as pd
-import matplotlib.pyplot as plt
 
 class SpamReader:
+    """A class to get the dictionary of words from a spam dataset."""
     def __init__(self, df: pd.DataFrame) -> None:
         """
         Store the provided dataframe.
