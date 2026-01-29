@@ -28,7 +28,7 @@ class SpamReader:
         """
         Return a copy of the dataframe, sorted by the frequency of times that the given
         word appears in the message. The messages in which the word appears most often
-        should be at the top of the dataframe.
+        should be at the top of the dataframe. Case sensitive.
 
         If include_spam is False, filter out all of the spam in the resulting dataframe.
         If include_ham is False, filter out all of the ham in the resulting dataframe.
