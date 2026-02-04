@@ -25,6 +25,7 @@ class SpamSorter:
         Raises:
             ValueError: If the dataframe does not contain the columns 'v1' and 'v2'
         """
+        # The constructor is provided to you
         if 'v1' not in df.columns or 'v2' not in df.columns:
             raise ValueError("DataFrame must contain 'v1' and 'v2' columns")
         self.df = df
