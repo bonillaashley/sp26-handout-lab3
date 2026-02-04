@@ -13,7 +13,7 @@ import sys
 sys.path.append(".")
 import pandas as pd
 
-class SpamReader:
+class SpamSorter:
     """A class to sort messages by the frequency of a given word."""
     def __init__(self, df: pd.DataFrame) -> None:
         """
@@ -25,17 +25,19 @@ class SpamReader:
         Raises:
             ValueError: If the dataframe does not contain the columns 'v1' and 'v2'
         """
+        if 'v1' not in df.columns or 'v2' not in df.columns:
+            raise ValueError("DataFrame must contain 'v1' and 'v2' columns")
         self.df = df
 
     def sort_by_word_frequency(
-            self, word: str, include_spam: bool = True, include_ham: bool = True) -> pd.DataFrame:
+            self, word: str, include_spam: bool = True, include_ham: bool = True) -> list[str]:
         """
-        Return a copy of the dataframe, sorted by the frequency of times that the given
+        Return a list of the SMS messages, sorted by the number of times that the given
         word appears in the message. The messages in which the word appears most often
-        should be at the top of the dataframe. Case sensitive.
+        is first. If there is a tie, either message can be first. Case sensitive.
 
-        If include_spam is False, filter out all of the spam in the resulting dataframe.
-        If include_ham is False, filter out all of the ham in the resulting dataframe.
+        If include_spam is False, filter out all of the spam in the resulting list.
+        If include_ham is False, filter out all of the ham in the resulting list.
 
         Args:
             word (str): The word to count in each message.
@@ -43,6 +45,6 @@ class SpamReader:
             include_ham (bool): Whether to include ham messages in the result.
         
         Returns:
-            pd.DataFrame: A dataframe sorted by the frequency of the given word.
+            list[str]: A list of messages sorted by the frequency of the given word.
         """
         pass

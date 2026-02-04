@@ -5,7 +5,7 @@ sys.path.append(".")
 import unittest
 from unittest import mock
 import pandas as pd
-from src.q2 import SpamReader
+from src.q2 import SpamPlotter
 
 # You are not required to test visualizations.
 # You may ignore this file.
@@ -13,10 +13,10 @@ from src.q2 import SpamReader
 # It uses unittest.mock, just like how you've used it to test printed things.
 
 class TestPlotWordFrequencies(unittest.TestCase):
-    """Test for SpamReader.plot_word_frequencies"""
+    """Test for SpamPlotter.plot_word_frequencies"""
 
     @mock.patch('src.q2.plt')
-    @mock.patch('src.q2.BaseSpamReader')
+    @mock.patch('src.q2.SpamReader')
     def test_plot_word_frequencies(
         self, mock_base_reader_class: mock.Mock, mock_plt: mock.Mock) -> None:
         """Test that word counts are calculated and plotted correctly"""
@@ -30,7 +30,7 @@ class TestPlotWordFrequencies(unittest.TestCase):
         mock_base_instance.get_dictionary.return_value = {'buy', 'free'}
         mock_base_reader_class.return_value = mock_base_instance
         
-        reader = SpamReader(df)
+        reader = SpamPlotter(df)
         reader.plot_word_frequencies()
         
         # Get the call to plt.scatter

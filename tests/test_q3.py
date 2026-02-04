@@ -4,4 +4,4 @@ import sys
 sys.path.append(".")
 import unittest
 import pandas as pd
-from src.q1 import SpamReader
+from src.q3 import SpamSorter
